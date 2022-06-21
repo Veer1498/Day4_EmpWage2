@@ -5,6 +5,7 @@ public class EmpWage2 {
 	public static final int employeePartTime = 2;
 	public static final int WagePerHour = 20;
 	public static final int NumberOfWorkingDays =20;
+	public static final int TotalHoursinMonth = 100;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stu
@@ -12,27 +13,26 @@ public class EmpWage2 {
 	
 		int numberOfHours = 0;
 		int empWagePerDay = 0;
-		int i, totalEmployeeWage =0;
-		for (i=0; i<NumberOfWorkingDays; i++) {
+		int totalWorkDays = 0 , totalWorkHours = 0;
+		int totalEmployeeWage =0;
+		while (totalWorkHours<= TotalHoursinMonth && totalWorkDays < NumberOfWorkingDays) {
+		totalWorkHours++;
+		totalWorkDays++;
 		int isPresent = (int) Math.floor(Math.random()*10) %3;
 		switch (isPresent) {
 			case employeePresent :
 				numberOfHours =8;
-				System.out.println("Employee is Present");
 				break;
 			case employeePartTime :
 				numberOfHours =4;
-				System.out.println("Employee is Part Time ");
 				break;
 			default :
 				numberOfHours = 0;
-				System.out.println("Employee is Absent");
-				break;
 		}
-		empWagePerDay = numberOfHours * WagePerHour;
-		totalEmployeeWage= totalEmployeeWage + empWagePerDay;
-		System.out.println("Employee Wage daily =" + empWagePerDay);
-		}	
+		totalWorkHours += numberOfHours;
+		System.out.println("day  = " + totalWorkDays + " No. of Hours = " +numberOfHours);
+		}
+		totalEmployeeWage= totalWorkHours * WagePerHour;
 		System.out.println("Total Employee Wage is "+ totalEmployeeWage);
 	}
 
