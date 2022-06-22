@@ -16,24 +16,37 @@ public class EmpWage2 {
 		int totalWorkDays = 0 , totalWorkHours = 0;
 		int totalEmployeeWage =0;
 		while (totalWorkHours<= TotalHoursinMonth && totalWorkDays < NumberOfWorkingDays) {
-		totalWorkHours++;
 		totalWorkDays++;
 		int isPresent = (int) Math.floor(Math.random()*10) %3;
 		switch (isPresent) {
 			case employeePresent :
 				numberOfHours =8;
+				totalWorkHours =totalWorkHours + numberOfHours;
+				System.out.println("Employee is Prsent");
+				System.out.println("Employee earn = " + numberOfHours * WagePerHour);
+				totalWorkDays++;
+
 				break;
 			case employeePartTime :
 				numberOfHours =4;
+				totalWorkHours =totalWorkHours + numberOfHours;
+				System.out.println("Employee is Part Time Present");
+				System.out.println("Employee earn with PartTime= " + numberOfHours* WagePerHour);
+				totalWorkDays++;
+
 				break;
+
 			default :
 				numberOfHours = 0;
+				totalWorkHours =totalWorkHours + numberOfHours;
+				System.out.println("Employee is not Present");
+				System.out.println("Employee earn = 0");
+				break;
+				}
 		}
-		totalWorkHours += numberOfHours;
 		System.out.println("day  = " + totalWorkDays + " No. of Hours = " +numberOfHours);
-		}
+		System.out.println(	"Employee Monthly Earn = " + ((numberOfHours) * WagePerHour) * NumberOfWorkingDays);
 		totalEmployeeWage= totalWorkHours * WagePerHour;
 		System.out.println("Total Employee Wage is "+ totalEmployeeWage);
 	}
-
 }
